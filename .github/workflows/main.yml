@@ -29,6 +29,6 @@ jobs:
         token: ${{ secrets.GH_TOKEN }}
         gist_id: 9926b02da1e6d06a83dd655a2044eac1
         file_path: dist/links.json
-        file_type: binary
+        file_type: text
 
 # Authored by KuoHuanHuan.
