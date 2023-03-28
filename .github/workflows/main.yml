@@ -1,0 +1,34 @@
+name: Convert and Sync
+
+on:
+  # Run if push to `master` branch
+  push:
+    branches:
+      - master
+
+jobs:
+  convert-and-sync:
+    # Use Ubuntu 22.04 LTS
+    runs-on: ubuntu-22.04
+    steps:
+    # Use Deno
+    - name: Use Deno
+      uses: denoland/setup-deno@v1
+      with:
+        deno-version: v1.x
+    # Get source code
+    - name: Checkout
+      uses: actions/checkout@v3
+    # Edit posts list file
+    - name: Convert
+      run: deno run --allow-read --allow-write index.ts
+    # Sync JSON to GitHub Gist
+    - name: Sync
+      uses: exuanbo/actions-deploy-gist@v1
+      with:
+        token: ${{ secrets.GH_TOKEN }}
+        gist_id: 82904828a7b3478b45986441da7569b6
+        file_path: dist/links.json
+        file_type: binary
+
+# Authored by KuoHuanHuan.
