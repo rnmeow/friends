@@ -10,4 +10,6 @@ try {
   console.log('YAML file successfully parsed and saved as JSON.')
 } catch (err) {
   console.error(`FATAL: ${err}`)
+
+  Deno.exit(1)
 }
