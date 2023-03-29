@@ -3,5 +3,11 @@ import { join } from 'https://deno.land/std@0.181.0/path/mod.ts'
 
 const data = parse(await Deno.readTextFile(join(Deno.cwd(), 'src/links.yml')))
 
-await Deno.mkdir(join(Deno.cwd(), 'dist'), { recursive: true })
-await Deno.writeTextFile(join(Deno.cwd(), 'dist/links.json'), JSON.stringify(data))
+try {
+  await Deno.mkdir(join(Deno.cwd(), 'dist'), { recursive: true })
+  await Deno.writeTextFile(join(Deno.cwd(), 'dist/links.json'), JSON.stringify(data))
+
+  console.log('YAML file successfully parsed and saved as JSON.')
+} catch (err) {
+  console.error(`FATAL: ${err}`)
+}
