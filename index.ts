@@ -1,5 +1,5 @@
-import { parse } from 'https://deno.land/std@0.181.0/yaml/mod.ts'
-import { join } from 'https://deno.land/std@0.181.0/path/mod.ts'
+import { parse } from 'https://deno.land/std@0.182.0/yaml/mod.ts'
+import { join } from 'https://deno.land/std@0.182.0/path/mod.ts'
 
 const data = parse(await Deno.readTextFile(join(Deno.cwd(), 'src/links.yml')))
 
