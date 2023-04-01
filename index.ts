@@ -6,10 +6,9 @@ const data = parse(await Deno.readTextFile(join(Deno.cwd(), 'src/links.yml')))
 try {
   await Deno.mkdir(join(Deno.cwd(), 'dist'), { recursive: true })
   await Deno.writeTextFile(join(Deno.cwd(), 'dist/links.json'), JSON.stringify(data))
-
-  console.log('YAML file successfully parsed and saved as JSON.')
 } catch (err) {
   console.error(`FATAL: ${err}`)
-
   Deno.exit(1)
 }
+
+console.log('YAML file successfully parsed and saved as JSON.')
