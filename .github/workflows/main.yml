@@ -13,18 +13,18 @@ jobs:
     # Use Ubuntu 22.04 LTS
     runs-on: ubuntu-22.04
     steps:
-    # Use Deno
-    - name: Use Deno
+    # Step I
+    - name: Setup Deno
       uses: denoland/setup-deno@v1
       with:
         deno-version: v1.x
-    # Get source code
+    # Step II
     - name: Checkout
       uses: actions/checkout@v3
-    # Edit posts list file
+    # Step III
     - name: Convert
       run: deno run --allow-read --allow-write index.ts
-    # Sync JSON to GitHub Gist
+    # Step IV
     - name: Sync
       uses: exuanbo/actions-deploy-gist@v1
       with:
