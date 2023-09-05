@@ -20,7 +20,7 @@ jobs:
         deno-version: v1.32.2
     # Step II
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     # Step III
     - name: Convert
       run: deno run --allow-read --allow-write index.ts
